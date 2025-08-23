@@ -1,4 +1,13 @@
-# 💤 LazyVim
+# NVIM Config
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+This is created from the [LazyVim](https://github.com/LazyVim/LazyVim) starter template.
+
+It also contains scripts to setup to setup `nvim` inside a `devpod`.
+
+The `devpod` should be started with something like:
+
+``` sh
+devpod up --dotfiles git@github.com:timdeklijn/nvim.git --recreate .
+```
+```
+```
