@@ -10,7 +10,7 @@ This is my neovim configuration. I want a config that is mine. It should be mini
 - Markdown
 - ReST
 
-I want to use the lazy package manager to install packages. Installing language servers will be done in my system and should not be configured inside my neovim config.
+I want to use the lazy.nvim package manager to install packages. Installing language servers will be done in my system and should not be configured inside my neovim config. Keep in mind that this config should work inside a NixOS installation, so make sure to keep everyting inside of userland.
 
 ## Project Structure
 
@@ -19,8 +19,8 @@ I want to use the lazy package manager to install packages. Installing language 
 - When appropriate, add `before/ftplugin`
 
 ## Build & Validation
-- Run `nvim --clean -u init.lua` before pushing to ensure startup succeeds without user-local state.
-- Use `nvim --headless -u init.lua "+checkhealth" +qa` to surface missing dependencies or Lua errors.
+- Run `XDG_CACHE_HOME="$PWD/.tmp/xdg-cache" XDG_STATE_HOME="$PWD/.tmp/xdg-state" XDG_DATA_HOME="$PWD/.tmp/xdg-data" nvim --clean -u init.lua +qa` before pushing to ensure startup succeeds without user-local state.
+- Use `XDG_CACHE_HOME="$PWD/.tmp/xdg-cache" XDG_STATE_HOME="$PWD/.tmp/xdg-state" XDG_DATA_HOME="$PWD/.tmp/xdg-data" nvim --headless -u init.lua "+checkhealth" +qa` to surface missing dependencies or Lua errors.
 - Format Lua sources with `stylua init.lua lua lsp` so the style stays consistent across files.
 
 Run these validations after every change.
