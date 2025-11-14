@@ -18,6 +18,7 @@ I want to use the lazy.nvim package manager to install packages. Installing lang
 - Each LSP is configure in an own file inside `lsp/`.
 - When appropriate, add `before/ftplugin`
 - Centralize one-time LSP enablement logic in Lua modules (for example `lua/lsp_setup.lua`) and avoid per-buffer setup in ftplugin files.
+- Keep shared LSP autocmds (like `LspAttach` keymaps) inside the same setup module so `init.lua` only needs to call a single `lsp_setup.setup()` entrypoint.
 
 ## Build & Validation
 - Run `XDG_CACHE_HOME="$PWD/.tmp/xdg-cache" XDG_STATE_HOME="$PWD/.tmp/xdg-state" XDG_DATA_HOME="$PWD/.tmp/xdg-data" nvim --clean -u init.lua +qa` before pushing to ensure startup succeeds without user-local state.
