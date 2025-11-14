@@ -18,6 +18,7 @@ local function plugins()
 	return {
 		require("mini_statusline"),
 		require("conform_nvim"),
+		require("snacks_nvim"),
 	}
 end
 
