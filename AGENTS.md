@@ -17,11 +17,13 @@ I want to use the lazy.nvim package manager to install packages. Installing lang
 - Each plugin should have an own file inside `lua/`.
 - Each LSP is configure in an own file inside `lsp/`.
 - When appropriate, add `before/ftplugin`
+- Centralize one-time LSP enablement logic in Lua modules (for example `lua/lsp_setup.lua`) and avoid per-buffer setup in ftplugin files.
 
 ## Build & Validation
 - Run `XDG_CACHE_HOME="$PWD/.tmp/xdg-cache" XDG_STATE_HOME="$PWD/.tmp/xdg-state" XDG_DATA_HOME="$PWD/.tmp/xdg-data" nvim --clean -u init.lua +qa` before pushing to ensure startup succeeds without user-local state.
 - Use `XDG_CACHE_HOME="$PWD/.tmp/xdg-cache" XDG_STATE_HOME="$PWD/.tmp/xdg-state" XDG_DATA_HOME="$PWD/.tmp/xdg-data" nvim --headless -u init.lua "+checkhealth" +qa` to surface missing dependencies or Lua errors.
 - Format Lua sources with `stylua init.lua lua lsp` so the style stays consistent across files.
+- When network is restricted, request access before running the two Neovim validation commands so lazy.nvim can download plugins.
 
 Run these validations after every change.
 

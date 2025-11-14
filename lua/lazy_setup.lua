@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 local function plugins()
 	return {
 		require("mini_statusline"),
+		require("conform_nvim"),
 	}
 end
 
