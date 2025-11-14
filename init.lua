@@ -1,5 +1,3 @@
--- Set <space> as the leader key
--- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -24,6 +22,7 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 5
 vim.o.confirm = true
+vim.o.autoread = true
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -39,5 +38,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
+  desc = 'Check if files changed outside of Neovim',
+  command = 'checktime',
+})
+
+vim.api.nvim_create_autocmd('FileChangedShellPost', {
+  desc = 'Notify when a file is reloaded from disk',
+  callback = function()
+    vim.notify('File reloaded from disk', vim.log.levels.INFO)
   end,
 })

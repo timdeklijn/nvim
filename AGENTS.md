@@ -19,10 +19,11 @@ I want to use the lazy package manager to install packages. Installing language 
 - When appropriate, add `before/ftplugin`
 
 ## Build & Validation
-
 - Run `nvim --clean -u init.lua` before pushing to ensure startup succeeds without user-local state.
 - Use `nvim --headless -u init.lua "+checkhealth" +qa` to surface missing dependencies or Lua errors.
 - Format Lua sources with `stylua init.lua lua lsp` so the style stays consistent across files.
+
+Run these validations after every change.
 
 ## Coding Style & Naming Conventions
 
