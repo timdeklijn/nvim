@@ -1,5 +1,11 @@
 local M = {}
 
+local server_modules = {
+	{ name = "lua_ls", module = "lsp.lua_ls" },
+	{ name = "pyright", module = "lsp.pyright" },
+	{ name = "ruff_lsp", module = "lsp.ruff_lsp" },
+}
+
 local function setup_lsp_keymaps()
 	local group = vim.api.nvim_create_augroup("custom_lsp_keymaps", { clear = true })
 	vim.api.nvim_create_autocmd("LspAttach", {
@@ -25,15 +31,15 @@ local function setup_lsp_keymaps()
 	})
 end
 
-function M.setup_lua_ls()
-	local ok, config = pcall(require, "lsp.lua_ls")
+local function enable_server(server)
+	local ok, config = pcall(require, server.module)
 	if not ok then
-		vim.notify("Lua LS config missing: " .. config, vim.log.levels.ERROR)
+		vim.notify("LSP config missing for " .. server.name .. ": " .. config, vim.log.levels.ERROR)
 		return
 	end
 	if vim.lsp.config and vim.lsp.enable then
-		vim.lsp.config("lua_ls", config)
-		vim.lsp.enable("lua_ls")
+		vim.lsp.config(server.name, config)
+		vim.lsp.enable(server.name)
 	else
 		vim.notify("vim.lsp.config() not available; please upgrade Neovim to v0.11 or newer", vim.log.levels.WARN)
 	end
@@ -41,7 +47,9 @@ end
 
 function M.setup()
 	setup_lsp_keymaps()
-	M.setup_lua_ls()
+	for _, server in ipairs(server_modules) do
+		enable_server(server)
+	end
 end
 
 return M

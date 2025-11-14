@@ -6,12 +6,15 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
+				python = { "ruff_fix", "ruff_format" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 					return
 				end
-				return { timeout_ms = 3000, lsp_fallback = true }
+				local filetype = vim.bo[bufnr].filetype
+				local lsp_fallback = filetype ~= "python"
+				return { timeout_ms = 3000, lsp_fallback = lsp_fallback }
 			end,
 		})
 
