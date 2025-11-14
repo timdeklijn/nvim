@@ -6,6 +6,12 @@ local server_modules = {
 	{ name = "ruff_lsp", module = "lsp.ruff_lsp" },
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if has_cmp then
+	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+end
+
 local function setup_lsp_keymaps()
 	local group = vim.api.nvim_create_augroup("custom_lsp_keymaps", { clear = true })
 	vim.api.nvim_create_autocmd("LspAttach", {
@@ -38,6 +44,7 @@ local function enable_server(server)
 		return
 	end
 	if vim.lsp.config and vim.lsp.enable then
+		config.capabilities = vim.tbl_deep_extend("force", {}, capabilities, config.capabilities or {})
 		vim.lsp.config(server.name, config)
 		vim.lsp.enable(server.name)
 	else

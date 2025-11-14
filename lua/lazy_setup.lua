@@ -19,6 +19,9 @@ local function plugins()
 		require("mini_statusline"),
 		require("conform_nvim"),
 		require("snacks_nvim"),
+		require("nvim_treesitter"),
+		require("tokyonight_nvim"),
+		require("nvim_cmp"),
 	}
 end
 

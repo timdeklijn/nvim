@@ -6,7 +6,6 @@ if not vim.tbl_contains(vim.opt.runtimepath:get(), root_dir) then
 	vim.opt.runtimepath:prepend(root_dir)
 end
 package.path = root_dir .. "/?.lua;" .. root_dir .. "/?/init.lua;" .. package.path
-local lsp_setup = require("lsp_setup")
 
 vim.o.relativenumber = true
 vim.o.mouse = "a"
@@ -60,5 +59,5 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 	end,
 })
 
-lsp_setup.setup()
 require("lazy_setup").setup()
+require("lsp_setup").setup()
