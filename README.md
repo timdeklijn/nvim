@@ -2,8 +2,8 @@
 
 ## TODO:
 
-- [ ] Golang
-- [ ] GitSigns
+- [x] Golang
+- [x] GitSigns
 - [ ] Other languages
 
 ### Later

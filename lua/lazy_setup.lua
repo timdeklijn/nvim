@@ -20,8 +20,10 @@ local function plugins()
 		require("conform_nvim"),
 		require("snacks_nvim"),
 		require("nvim_treesitter"),
+		require("gitsigns_nvim"),
 		require("moonfly_nvim"),
 		require("nvim_cmp"),
+		require("fidget_nvim"),
 	}
 end
 
