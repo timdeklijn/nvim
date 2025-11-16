@@ -20,7 +20,7 @@ local function plugins()
 		require("conform_nvim"),
 		require("snacks_nvim"),
 		require("nvim_treesitter"),
-		require("tokyonight_nvim"),
+		require("moonfly_nvim"),
 		require("nvim_cmp"),
 	}
 end

@@ -4,3 +4,5 @@ lazy/
 .tmp/xdg-state/nvim/shada
 .nvimlog
 .tmp/xdg-state/nvim/log
+.tmp/xdg-cache/nvim
+.tmp/xdg-data/nvim

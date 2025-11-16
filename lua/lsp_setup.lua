@@ -4,6 +4,7 @@ local server_modules = {
 	{ name = "lua_ls", module = "lsp.lua_ls" },
 	{ name = "pyright", module = "lsp.pyright" },
 	{ name = "ruff_lsp", module = "lsp.ruff_lsp" },
+	{ name = "gopls", module = "lsp.gopls" },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

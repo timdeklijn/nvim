@@ -29,9 +29,16 @@ vim.o.cursorline = true
 vim.o.scrolloff = 5
 vim.o.confirm = true
 vim.o.autoread = true
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics float" })
+vim.keymap.set("n", "<leader>oi", function()
+	if vim.bo.filetype ~= "go" then
+		vim.notify("Organize imports is only available for Go buffers", vim.log.levels.INFO)
+		return
+	end
+	require("go_utils").organize_imports()
+end, { desc = "Organize Go imports" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
