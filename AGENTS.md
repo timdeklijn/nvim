@@ -13,7 +13,6 @@ This is my neovim configuration. I want a config that is mine. It should be mini
 I want to use the lazy.nvim package manager to install packages. Installing language servers will be done in my system and should not be configured inside my neovim config. Keep in mind that this config should work inside a NixOS installation, so make sure to keep everyting inside of userland.
 
 ## Project Structure
-
 - Each plugin should have an own file inside `lua/`.
 - Each LSP is configure in an own file inside `lsp/`.
 - When appropriate, add `before/ftplugin`
@@ -29,7 +28,6 @@ I want to use the lazy.nvim package manager to install packages. Installing lang
 Run these validations after every change.
 
 ## Coding Style & Naming Conventions
-
 - Follow standard Lua style: two-space indentation, no tabs, keep lines under ~100 chars, and prefer local helpers over globals.
 - Group related settings (options, mappings, autocmds) and leave a blank line between sections for readability.
 - Name plugin configs `lua/<plugin_name>.lua` and LSP configs `lua/lsp/<lsp_name>.lua`. Use snake_case for filenames and module identifiers.
