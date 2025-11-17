@@ -19,6 +19,7 @@ local function plugins()
 		require("mini_statusline"),
 		require("conform_nvim"),
 		require("snacks_nvim"),
+		require("neo_tree_nvim"),
 		require("nvim_treesitter"),
 		require("gitsigns_nvim"),
 		require("moonfly_nvim"),
