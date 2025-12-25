@@ -5,6 +5,7 @@ local server_modules = {
 	{ name = "pyright", module = "lsp.pyright" },
 	{ name = "ruff_lsp", module = "lsp.ruff_lsp" },
 	{ name = "gopls", module = "lsp.gopls" },
+	{ name = "rust_analyzer", module = "lsp.rust_analyzer" },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

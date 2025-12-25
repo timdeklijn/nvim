@@ -3,6 +3,7 @@
 ## TODO:
 
 - [x] Golang
+- [x] Rust
 - [x] GitSigns
 - [ ] Other languages
 

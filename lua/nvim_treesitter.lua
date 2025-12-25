@@ -11,6 +11,7 @@ return {
 				"dockerfile",
 				"go",
 				"lua",
+				"rust",
 				"markdown",
 				"markdown_inline",
 				"rst",
