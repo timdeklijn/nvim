@@ -1,5 +1,6 @@
 .envrc
 lazy/
+.tmp/
 .tmp/xdg-cache/nvim/luac
 .tmp/xdg-state/nvim/shada
 .nvimlog

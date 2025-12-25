@@ -22,7 +22,7 @@ local function plugins()
 		require("neo_tree_nvim"),
 		require("nvim_treesitter"),
 		require("gitsigns_nvim"),
-		require("moonfly_nvim"),
+		require("dracula_nvim"),
 		require("nvim_cmp"),
 		require("fidget_nvim"),
 	}
@@ -31,7 +31,7 @@ end
 function M.setup()
 	require("lazy").setup(plugins(), {
 		defaults = { lazy = false },
-		install = { colorscheme = { "habamax" } },
+		install = { colorscheme = { "dracula", "habamax" } },
 		checker = { enabled = false },
 	})
 end
