@@ -1,7 +1,7 @@
 # Repository Guidelines
 This is my neovim configuration. I want a config that is mine. It should be minimal, and work for the following languages, when no LSP is provided, assume the default one:
 
-- python (pyright, ruff)
+- python (ty, ruff)
 - yaml
 - json
 - Docker
