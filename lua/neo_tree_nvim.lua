@@ -8,7 +8,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>fe",
+			"<leader>F",
 			function()
 				require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
 			end,
