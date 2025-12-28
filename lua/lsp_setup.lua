@@ -10,10 +10,6 @@ local server_modules = {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if has_cmp then
-	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-end
 
 local function setup_lsp_keymaps()
 	local group = vim.api.nvim_create_augroup("custom_lsp_keymaps", { clear = true })
@@ -22,12 +18,22 @@ local function setup_lsp_keymaps()
 		desc = "LSP keymaps",
 		callback = function(event)
 			local bufnr = event.buf
+			local client_id = event.data and event.data.client_id
+
+			if client_id and vim.lsp.completion and vim.lsp.completion.enable then
+				vim.lsp.completion.enable(true, client_id, bufnr)
+			end
+			vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+
 			if vim.b[bufnr].lsp_keymaps_set then
 				return
 			end
 			local map = function(mode, lhs, rhs, desc)
 				vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 			end
+			map("i", "<C-Space>", function()
+				vim.lsp.completion.get()
+			end, "Trigger completion")
 			map("n", "gd", vim.lsp.buf.definition, "Go to definition")
 			map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 			map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")

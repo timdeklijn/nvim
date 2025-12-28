@@ -23,7 +23,6 @@ local function plugins()
 		require("nvim_treesitter"),
 		require("gitsigns_nvim"),
 		require("oxocarbon_nvim"),
-		require("nvim_cmp"),
 		require("fidget_nvim"),
 	}
 end
