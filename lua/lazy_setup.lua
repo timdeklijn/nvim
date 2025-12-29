@@ -22,7 +22,7 @@ local function plugins()
 		require("neo_tree_nvim"),
 		require("nvim_treesitter"),
 		require("gitsigns_nvim"),
-		require("oxocarbon_nvim"),
+		require("kanagawa_nvim"),
 		require("fidget_nvim"),
 		require("blink_cmp"),
 	}
@@ -31,7 +31,7 @@ end
 function M.setup()
 	require("lazy").setup(plugins(), {
 		defaults = { lazy = false },
-		install = { colorscheme = { "oxocarbon", "habamax" } },
+		install = { colorscheme = { "kanagawa", "habamax" } },
 		checker = { enabled = false },
 	})
 end
