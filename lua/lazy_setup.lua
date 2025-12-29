@@ -24,6 +24,7 @@ local function plugins()
 		require("gitsigns_nvim"),
 		require("oxocarbon_nvim"),
 		require("fidget_nvim"),
+		require("blink_cmp"),
 	}
 end
 
