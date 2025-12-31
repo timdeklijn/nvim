@@ -7,6 +7,9 @@ local server_modules = {
 	{ name = "ruff_lsp", module = "lsp.ruff_lsp" },
 	{ name = "gopls", module = "lsp.gopls" },
 	{ name = "rust_analyzer", module = "lsp.rust_analyzer" },
+	{ name = "docker-language-server", module = "lsp.docker_language_server" },
+	{ name = "yaml-language-server", module = "lsp.yaml_language_server" },
+	{ name = "vscode-json-language-server", module = "lsp.json_language_server" },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
