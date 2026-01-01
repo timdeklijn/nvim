@@ -81,5 +81,6 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 	end,
 })
 
+require("terminal").setup()
 require("lazy_setup").setup()
 require("lsp_setup").setup()
