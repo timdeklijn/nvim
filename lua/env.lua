@@ -7,11 +7,7 @@ local function file_exists(path)
 end
 
 function M.in_container()
-	if vim.env.NVIM_IN_CONTAINER == "1" then
-		return true
-	end
-
-	return file_exists("/.dockerenv") or file_exists("/run/.containerenv")
+	return file_exists("/.dockerenv")
 end
 
 return M
