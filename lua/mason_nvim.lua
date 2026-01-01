@@ -33,6 +33,7 @@ return {
 			"docker-language-server",
 			"elixir-ls",
 			"gopls",
+			"jq",
 			"json-lsp",
 			"ruff-lsp",
 			"rust-analyzer",

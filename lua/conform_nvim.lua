@@ -9,6 +9,7 @@ return {
 				python = { "ruff_fix", "ruff_format" },
 				go = { "gofmt" },
 				rust = { "rustfmt" },
+				json = { "jq" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
