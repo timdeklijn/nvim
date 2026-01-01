@@ -13,6 +13,20 @@ vim.o.showmode = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
+	-- Make clipboard work over SSH/docker/etc via OSC52
+	local osc52 = require("vim.ui.clipboard.osc52")
+
+	vim.g.clipboard = {
+		name = "OSC52",
+		copy = {
+			["+"] = osc52.copy("+"),
+			["*"] = osc52.copy("*"),
+		},
+		paste = {
+			["+"] = osc52.paste("+"),
+			["*"] = osc52.paste("*"),
+		},
+	}
 end)
 vim.o.breakindent = true
 vim.o.undofile = true
