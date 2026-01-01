@@ -9,21 +9,23 @@ install_nvim() {
   local archive="nvim-linux-x86_64.tar.gz"
   local url="https://github.com/neovim/neovim/releases/download/${version}/${archive}"
 
-  local tmp_dir
-  tmp_dir="$(mktemp -d)"
-  trap 'rm -rf "$tmp_dir"' RETURN
+  (
+    local tmp_dir
+    tmp_dir="$(mktemp -d)"
+    trap 'rm -rf "$tmp_dir"' EXIT
 
-  curl -fsSL -o "${tmp_dir}/${archive}" "$url"
-  tar -C "$tmp_dir" -xzf "${tmp_dir}/${archive}"
+    curl -fsSL -o "${tmp_dir}/${archive}" "$url"
+    tar -C "$tmp_dir" -xzf "${tmp_dir}/${archive}"
 
-  mkdir -p "$HOME/.local/bin" "$HOME/.local/opt"
-  rm -rf "$HOME/.local/opt/nvim"
-  mv "${tmp_dir}/nvim-linux-x86_64" "$HOME/.local/opt/nvim"
-  ln -sfn "$HOME/.local/opt/nvim/bin/nvim" "$HOME/.local/bin/nvim"
+    mkdir -p "$HOME/.local/bin" "$HOME/.local/opt"
+    rm -rf "$HOME/.local/opt/nvim"
+    mv "${tmp_dir}/nvim-linux-x86_64" "$HOME/.local/opt/nvim"
+    ln -sfn "$HOME/.local/opt/nvim/bin/nvim" "$HOME/.local/bin/nvim"
 
-  if ! command -v nvim >/dev/null 2>&1; then
-    echo "Installed Neovim to $HOME/.local/bin/nvim (ensure ~/.local/bin is in PATH)"
-  fi
+    if ! command -v nvim >/dev/null 2>&1; then
+      echo "Installed Neovim to $HOME/.local/bin/nvim (ensure ~/.local/bin is in PATH)"
+    fi
+  )
 }
 
 install_nvim_config() {
