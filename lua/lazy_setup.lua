@@ -25,6 +25,7 @@ local function plugins()
 		require("kanagawa_nvim"),
 		require("fidget_nvim"),
 		require("blink_cmp"),
+		require("mason_nvim"),
 	}
 end
 
