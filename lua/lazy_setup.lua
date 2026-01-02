@@ -22,7 +22,7 @@ local function plugins()
 		require("neo_tree_nvim"),
 		require("nvim_treesitter"),
 		require("gitsigns_nvim"),
-		require("nightfly_colors"),
+		require("vscode_nvim"),
 		require("fidget_nvim"),
 		require("blink_cmp"),
 		require("mason_nvim"),
@@ -32,7 +32,7 @@ end
 function M.setup()
 	require("lazy").setup(plugins(), {
 		defaults = { lazy = false },
-		install = { colorscheme = { "nightfly", "habamax" } },
+		install = { colorscheme = { "vscode", "habamax" } },
 		checker = { enabled = false },
 	})
 end

@@ -10,6 +10,7 @@ package.path = root_dir .. "/?.lua;" .. root_dir .. "/?/init.lua;" .. package.pa
 vim.o.relativenumber = true
 vim.o.mouse = "a"
 vim.o.showmode = false
+vim.o.termsync = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
