@@ -2,7 +2,7 @@ local M = {}
 
 local server_modules = {
 	{ name = "lua_ls", module = "lsp.lua_ls" },
-	{ name = "elixir_ls", module = "lsp.elixir_ls" },
+	{ name = "expert", module = "lsp.expert" },
 	{ name = "ty", module = "lsp.ty" },
 	{ name = "ruff_lsp", module = "lsp.ruff_lsp" },
 	{ name = "gopls", module = "lsp.gopls" },

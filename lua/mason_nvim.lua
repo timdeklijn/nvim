@@ -31,7 +31,7 @@ return {
 
 		ensure_installed({
 			"docker-language-server",
-			"elixir-ls",
+			"expert",
 			"gopls",
 			"jq",
 			"json-lsp",
