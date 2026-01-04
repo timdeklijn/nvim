@@ -35,6 +35,7 @@ function M.setup()
 		install = { colorscheme = { "vscode", "habamax" } },
 		checker = { enabled = false },
 	})
+	vim.o.background = "dark"
 end
 
 return M

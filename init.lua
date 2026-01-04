@@ -14,20 +14,20 @@ vim.o.termsync = false
 vim.o.completeopt = "menu,menuone,noselect"
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
-	if vim.fn.executable("wl-copy") == 1 then
-		vim.g.clipboard = {
-			name = "wl-clipboard",
-			copy = {
-				["+"] = "wl-copy",
-				["*"] = "wl-copy",
-			},
-			paste = {
-				["+"] = "wl-paste",
-				["*"] = "wl-paste",
-			},
-			cache_enabled = 1,
-		}
-	end
+	-- 	if vim.fn.executable("wl-copy") == 1 then
+	-- 		vim.g.clipboard = {
+	-- 			name = "wl-clipboard",
+	-- 			copy = {
+	-- 				["+"] = "wl-copy",
+	-- 				["*"] = "wl-copy",
+	-- 			},
+	-- 			paste = {
+	-- 				["+"] = "wl-paste",
+	-- 				["*"] = "wl-paste",
+	-- 			},
+	-- 			cache_enabled = 1,
+	-- 		}
+	-- 	end
 end)
 vim.o.breakindent = true
 vim.o.undofile = true
