@@ -4,6 +4,14 @@ set -euo pipefail
 
 repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
+install_nushell() {
+	NU_VERSION="0.94.0"
+	curl -LO https://github.com/nushell/nushell/releases/download/${NU_VERSION}/nu-${NU_VERSION}-x86_64-unknown-linux-gnu.tar.gz
+	tar -xzf nu-${NU_VERSION}-x86_64-unknown-linux-gnu.tar.gz
+	sudo mv nu-${NU_VERSION}-x86_64-unknown-linux-gnu/nu $HOME/.local/bin/nu
+	rm -rf nu-${NU_VERSION}-x86_64-unknown-linux-gnu*
+}
+
 install_nvim() {
   local version="v0.11.5"
   local archive="nvim-linux-x86_64.tar.gz"
@@ -50,6 +58,10 @@ main() {
 
   if ! command -v nvim >/dev/null 2>&1; then
     install_nvim
+  fi
+
+  if ! command -v nu >/dev/null 2>&1; then
+    install_nushell
   fi
 }
 
